@@ -4,11 +4,11 @@ preco = 0
 nome =  ""
 if Codigo =="1":
     nome ="Cachorro quente"
-    preco= 22.0
+    preco= 20.5
     
 elif Codigo =="2":
     nome = "Hambuguer"
-    preco= 6.50
+    preco= 7.5
   
 
 elif Codigo == "3":

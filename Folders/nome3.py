@@ -17,4 +17,4 @@
 #Dada uma palavra, retorna os caracteres nas posições
 #ímpares
 
-Palavra = 
+
