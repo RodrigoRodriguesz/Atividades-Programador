@@ -32,3 +32,6 @@
 # se a nota for maior ou igual a 7, "Reprovado" 
 # se a nota for menor que 5 e "Recuperação" se a nota estiver entre 5 e 7.
 Usuario=input('Escreva seu nome:')
+Nota1= int(input("Qual a primeira nota:"))
+Nota2= int(input("Qual a segunda nota:"))
+Nota1= int(input("Qual a terceira nota:"))
