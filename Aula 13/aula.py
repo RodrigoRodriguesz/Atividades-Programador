@@ -1,63 +1,9 @@
-# import random
 
-# while True:
-#     print('''Escolha Seu Pokemon: )
-
-#     1 - Pikachu
-#     2 - Bulbasaur
-#     3 - Dragonite
-#     4 - Mewtwo
-#     5 - Sair
-
-
-#     ''')
-#     jogada = int(input('> '))
-#     Habilidades= ()
-#     vida=
-#     ataque=
-
-
-#     oponente = random.choice(range(1,4))
-#     #print jogador
-#     if jogada == 1:
-#         print('Você usou Pikachu')
-#     elif jogada == 2:
-#         print('Você usou Bulbasaur')
-#     elif jogada == 3:
-#         print('Você usou Dragonite')
-#     elif jogada == 4:
-#         print('Você usou Mewtwo')
-#     elif jogada == 5:
-#         print("Você saiu")
-#         break
-#     else:
-#         print('Jogada invalida')
-
-#     #print oponente
-#     if oponente == 1:
-#         print('O Adversario usou Pikachu')
-#     if oponente == 2:
-#         print('O Adversario usou Bulbasaur')
-#     if oponente == 3:
-#         print('O Adversario usou Dragonite')
-#     if oponente ==4:
-#         print('O Adversario usou Mewtwo ')
-#     #condições
-#     #Pikachu
-#     if jogada==1
-        
-#     #Bubasaur
-    
-#         print('Empate')
-#     #Dragonite
-    
-#     #Mewtwo
-    
-#     input('')
-
+import random
 
 
 class Pokemon:
+
     def __init__ (self , nome, tipo , ataque , fraqueza ,hp):
         self.nome= nome
         self.tipo=tipo
@@ -65,8 +11,16 @@ class Pokemon:
         self.fraqueza=fraqueza
         self.hp=hp
 
-        if __name__ == '__main__':
-            Pokemon1= Pokemon(Pichu,Raio,ThunderShock,Terra,100)(""" pokemon --catch
+    
+
+        
+Pokemon1= Pokemon( 'Pichu','Raio','ThunderShock','Terra',100)
+Pokemon2= Pokemon( 'bulbasaur','Planta','Bomba de Semente','Fogo',95)
+pokemon3= Pokemon( 'Charmander','Fogo','respiracao de fogo','Agua e Terra',110)
+Ataque= ('>')
+pokemonescolhido= random.choice([Pokemon1,Pokemon2,pokemon3])
+if Pokemon1:
+    print (pokemonescolhido.nome , """ pokemon --catch
 
       @%,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
       .????.@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -103,7 +57,17 @@ class Pokemon:
       @@@@@@@@@@@#*,,,,*.#@@@@@@@..*:,,*S@@@@@@@@@@@@@@@@@@@@@@@@@
       @@@@@@@@@@+@,%,,,#@@@@@@@@@@,S,,,%,,:@@@@@@@@@@@@@@@@@@@@@@@
 
-      Pichu""")
-    if 
-        
-     
+      """)
+    
+oponente = random.choice([Pokemon1,Pokemon2,pokemon3])
+
+#Condicao
+if pokemonescolhido.hp>oponente.hp:
+    print("Você ganhou")
+elif pokemonescolhido.hp<oponente.hp:
+    print('Voce perdeu')
+else :
+    print("Empate")
+    
+   
+    
