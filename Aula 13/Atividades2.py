@@ -80,6 +80,132 @@
 # print(Carros1.informacoes())
 # Carros1.acelerar(80)
 
+#Crie uma classe chamada "Agenda" que tenha como atributos uma lista de contatos e o número máximo de contatos permitidos. 
+#Cada contato deve ser um objeto da classe "Contato", que deve ter como atributos o nome e o telefone.
+# A classe "Agenda" deve ter os métodos "adicionar_contato", 
+#que deve receber um objeto "Contato" e adicioná-lo à lista de contatos, e "remover_contato", 
+#que deve receber um nome e remover da lista de contatos o contato que tiver esse nome.
+# Além disso, crie o método "informacoes" que retorna uma string contendo o nome e o telefone de cada contato
+
+# class Agenda:
+#     def __init__(self,listaDeContatos, maxContatos):
+
+#         self.listaDeContatos = listaDeContatos
+#         self.maxContatos = maxContatos
+
+#     def adicionarContato(self, novoContato):
+#         if len(self.listaDeContatos) < self.maxContatos:
+#             self.listaDeContatos.append(novoContato)
+#         else:
+#             print("Contato não foi adicionado. Limite atingido.")
+        
+
+#     def removerContato(self,nomeContato):
+#         for contato in self.listaDeContatos:
+#             if contato.nome == nomeContato:
+#                 self.listaDeContatos.remove(contato)
 
 
+#     def informacoes(self):
+        
+#         impressaoLista = ""
+
+#         for contato in self.listaDeContatos:
+#             impressaoLista = impressaoLista + f"• {contato.nome} - {contato.telefone} \n"
+#         return impressaoLista
+
+
+# class Contato:
+#     def __init__(self, nome, telefone):
+#         self.nome = nome
+#         self.telefone = telefone
+
+
+# contato1 = Contato("Jorge","1o23-123i9-123")
+
+# contato2 = Contato("Maicou", "1230140819841982")
+
+# contato3 = Contato("Maria", "1231151512")
+
+# minhaAgenda = Agenda([contato1,contato2,contato3], 5)
+
+# print(minhaAgenda.informacoes())
+
+# minhaAgenda.removerContato("Maria")
+
+# print(minhaAgenda.informacoes())
+
+# minhaAgenda.adicionarContato(Contato("Josuel", "1231411"))
+
+# minhaAgenda.adicionarContato(Contato("Milena", "1231412e121"))
+
+# print(minhaAgenda.informacoes())
+
+# minhaAgenda.adicionarContato(Contato("Fabricio","12312d12e1"))
+
+# minhaAgenda.adicionarContato(Contato("Pericles", "1djoi1jd12"))
+        
+
+
+
+# class Conta:
+#     def __init__(self,saldo) :
+#        self._saldo = saldo
+#     def get_saldo(self):
+#        return self.set_saldo
+        
+#     def set_saldo(self,saldo):
+#         self._saldo=saldo
+       
+# conta1=Conta(200.0)
+# conta2=Conta(300.0)
+# conta3= Conta(-100.0)
+
+# conta1.get_saldo()
+# conta2.get_saldo()
+# conta3.set_saldo(conta1.get_saldo() + conta2.get_saldo() +conta3.get_saldo())
+
+
+
+    
+
+# class Conta:
+#     def __init__(self,saldo,numConta):
+#         self.saldo = saldo
+#         self._numConta = numConta
+#     def getsaldo(self):
+#         return self.saldo
+#     def setsaldo(self,NovoSaldo):
+#         if NovoSaldo <0: 
+#             print("Digite um saldo positivo!!")
+#         else:
+#             self._saldo = NovoSaldo
+
+#     def getNumConta(self):
+#         return self._numConta
+#     def setNumConta(self,NovoNumero):
+#         self._numConta
+
+
+# conta1 = Conta (200.0)
+# conta2 = Conta (100.0)
+
+class Pokemon:
+    def __init__(self,nome,tipo,hp,movimento):
+      self._nome = nome 
+      self._tipo=tipo
+      self._hp=hp
+      self._movimento=movimento
+    def fazerBarulho(self):
+        print (f"{self._nome} fez um barulho")
+
+class PokemonFogo(Pokemon):
+          def __init__(self, nome, tipo, hp, movimento):
+              return  super().__init__(nome, tipo, hp, movimento)
+class PokemonAgua(Pokemon):
+     def __init__(self, nome, tipo, hp, movimento):
+          return super().__init__(nome, tipo, hp, movimento)
+class PokemonPlanta(Pokemon):
+     def __init__(self, nome, tipo, hp, movimento):
+        return  super().__init__(nome, tipo, hp, movimento)
 
