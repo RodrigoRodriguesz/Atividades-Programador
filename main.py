@@ -1,4 +1,5 @@
 import psycopg2
+
 try:
     connecting = psycopg2.connect(dbname= "Locadora", host = "Localhost", port = "5432", user = "postgres", password = "postgres")
 
@@ -23,6 +24,7 @@ def VerFilmes_Comprados():
 def historico():
     pass
 # ------------------------------------------------------------------
+#TELA INICIAL
 
 while True:
     try:
@@ -66,7 +68,7 @@ while True:
     except (Exception , psycopg2.Error) as error:
 print('error', error)
 
-
+# ------------------------------------------------------------------
 
 
 # from PySimpleGUI import PySimpleGUI as sg
@@ -92,3 +94,4 @@ print('error', error)
 #         else:
 #           print("Usuario inválido")
 #         break  
+# ------------------------------------------------------------------
