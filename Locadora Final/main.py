@@ -2,6 +2,7 @@
 from classconexao import Conexao
 con = Conexao(dbname= "Locadora", host = "Localhost", port = "5432", user = "postgres", password = "postgres")
 # ------------------------------------------------------------------
+
 def cadastrarCliente():
     nome = input(f"Digite seu Nome:")
     cpf = input(f"Digite seu CPF :")
@@ -100,22 +101,17 @@ def escolherFilmes():
         else:
             print("Nenhuma opçâo Válida!!")
 
-def Historico():
-    pass
+def verAlugueis():
+    H = con.consultarBanco('''
 
-
-
-
-    # H=con.consultarBanco('''
-    # SELECT * FROM "Filmes"
-    # ORDER BY "Nome" ASC
-    # ORDER BY "Tipo" ASC
-    # ''')
-    # if H :
-    #     print('ID | Filmes | Tipo |')
-    #     for Filmes in H :
-    #         con = Conexao("Locadora","localhost","5432","postgres","postgres")
-    #         print(f"{}")
+    SELECT * FROM "Alugueis"
+    ORDER BY "ID" ASC
+    ''')
+    if H :
+        print(f'ID | Nome | Tipo |')
+        for Filmes in H :
+            print(Filmes)
+            print(f"{verAlugueis}")
 
 
     # cliente = con.consultarBanco(f'''SELECT * FROM "Clientes"
@@ -223,7 +219,7 @@ while True:
                 case "2":
                     cadastrarFilmes()
                 case "3":
-                    VerFilmesAlugados()
+                    verAlugueis()
                 case "4":
                     VerClientes()
                 case "5":
