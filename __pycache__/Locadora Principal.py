@@ -33,8 +33,14 @@ def cadastrarFilmes():
 
     # ''')
 
-def VerFilmesAlugados():
-    pass
+def buscarfilmes():
+    buscar = con.consultarBanco('''
+    SELECT * FROM "Filmes"
+    ORDER BY "ID" ASC
+
+    ''')
+    if buscar:
+        pass
 
 def VerClientes():
     ListaClientes = con.consultarBanco('''
@@ -85,22 +91,69 @@ def escolherFilmes():
     ORDER BY "Nome" ASC 
 ''')
     if escolher :
-        print("Filmes Disponiveis:")
-        for i in escolher:
-            print(f'''
+       
+
+        print("Você quer alugar esse Filme? Sim ou Não :")
+    
+
+        ip = input("Escolha uma opção:")
+
+        #  ----------------------------------------------------------
+        # var= ip.upper()
+        # match var :
+        #     case "SIM":
+        #         print('Escolha um filme:')
+                
+        
+        #     case "NAO" :
+        #         print('Você não escolheu nenhum filme.')
+
+        #     case "Nâo" :
+        #         print('Você não escolheu nenhum filme.')
+        #     case _:
+        #         print('Saindo......')
+    
+        # ----------------------------------------------------------   
+
+
+        if ip == '1' or ip == "Sim":
+            print("Filmes Disponiveis:")
+            for i in escolher:
+                print(f'''
             ID - {i[0]}
             Nome - {i[1]}
             Tipo - {i[2]}
             ''')
-        ip(input("Você quer alugar esse Filme? 1 - Sim ou 2 - Não :"))
-        ip = input("escolha uma opção: ")
-        if ip == 1 or ip == "Sim":
-            print(f"Você alugou o Filme '{i[1]}','{usuario}' !! ")
-        elif ip == 2 or ip == "Não":
+
+            idescolhido = input("Escolha um filme:")
+            filmeescolhido=con.consultarBanco(f'''
+            Select * from "Filmes"
+            Where "ID" = {idescolhido}
+            
+            
+            ''')
+            if filmeescolhido == [()]:
+                print("Filme inválido")
+            else:
+                
+                consultaUsuario = con.consultarBanco(f'''
+                SELECT * FROM "Login"
+                WHERE "Nome_Usuario" = '{nomeUsuario}'
+                ''')
+                con.manipularBanco(f'''INSERT INTO "Alugueis"
+            values(default,'{consultaUsuario[0][0]}','{idescolhido}',default,default)''')
+                
+            print(f'Você alugou o Filme.',idescolhido)
+            
+                  
+
+        elif ip == '2' or ip == "Não":
             print("Você não alugou nenhum filme.")
+
+
         else:
             print("Nenhuma opçâo Válida!!")
-
+        
 def verAlugueis():
     alugueis = con.consultarBanco('''
 
@@ -111,63 +164,30 @@ def verAlugueis():
         print(f'ID | Nome | Tipo |')
         for aluguel in alugueis :
             print(f"{aluguel[0]} |{aluguel[1]}")
-        
 
 
-    # cliente = con.consultarBanco(f'''SELECT * FROM "Clientes"
-    # WHERE "ID" = {idCliente}
-    # ''')
 
-    # if cliente:
 
-    #     cliente = cliente[0]
-
-    #     print("Cliente Escolhido: ")
-
-    #     print(f'''
-    #     ID - {cliente[0]}
-    #     Nome - {cliente[1]}
-    #     CPF - {cliente[2]}
-    #     ''')
-
-    #     listaAlugueis = conexaoBanco.consultarBanco(f'''
-    #     SELECT * FROM "Alugueis"
-    #     WHERE "ID_Cliente" = '{cliente[0]}'
-    #     ''')
-    #     if listaAlugueis:
-    #         print("Lista de alugueis: ")
-
-    #         print("ID | Cliente | Livro | Data de Aluguel")
-    #         for aluguel in listaAlugueis:
-
-    #             #Você já tem o id do Cliente e id do Livro, busque nas tabelas e pegue as informações
-
-    #             clienteDoAluguel = conexaoBanco.consultarBanco(f'''
-    #             SELECT * FROM "Clientes"
-    #             WHERE "ID" = {aluguel[1]}
-    #             ''')[0]
-
-    #             livroDoAluguel = conexaoBanco.consultarBanco(f'''
-    #             SELECT * FROM "Livros"
-    #             WHERE "ID" = {aluguel[2]}
-    #             ''')[0]
-
-    #             print(f"{aluguel[0]} | {clienteDoAluguel[1]} | {livroDoAluguel[1]} | {aluguel[3]}")
-    #     else:
-    #         print("O cliente não possui aluguéis cadastrados")
-
-    # else:
-    #     print("O cliente não foi encontrado!")
-    
 
 def verinfo():
-    pass
+    info = con.consultarBanco(f'''
+    SELECT * FROM "Alugueis" 
+    where "ID_Cliente" = '{consultaUsuario[0][0]}'
+    ORDER BY "ID" ASC
+    ''')
+    if info:
+        print(f'ID | Filme | Data Pedido |')
+        for info in info:
+            print(f'{info[0]} | {info[1]} | {info[2]} | {info[3]}|')
+            if info[3] :
+                print("SEU PEDIDO ESTÁ:",info[4])
+            
 
             
 while True:
-    print("Faça o login:")
+    print("Faça o Login:")
 
-    nomeUsuario = input("Digite o nome de usuário:")
+    nomeUsuario = input("Digite o Nome de Usuário:")
 
     consultaUsuario = con.consultarBanco(f'''
     SELECT * FROM "Login"
@@ -181,7 +201,7 @@ while True:
 
     if usuario:
         
-        senhaUsuario = input("Digite a senha:")
+        senhaUsuario = input("Digite a Senha:")
 
         if senhaUsuario == usuario[3]:
 
