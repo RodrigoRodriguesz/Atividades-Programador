@@ -1,0 +1,31 @@
+#:import ScreenOneView View.Screen_One.ScreenOne
+#:import ScreenTwoView View.Screen_Two.ScreenTwo
+#:import ScreenThreeView View.Screen_Three.ScreenThree
+
+<MainScreenView>:
+    MDBoxLayout: 
+        orientation: 'vertical'
+        MDTopAppBar:
+            title: 'App'
+
+        MDBottomNavigation:
+            panel_color:175,238,238
+            MDBottomNavigationItem:
+                name: 'Pag1'
+                text: 'Home'
+                icon: 'home'
+                ScreenOneView:
+            MDBottomNavigationItem:
+                name: 'Pag2'
+                text: 'Buscar'
+                icon: 'magnify'
+                ScreenTwoView:
+            MDBottomNavigationItem:
+                name: 'Pag3'
+                text: 'Conf.'
+                icon: 'cog'
+                ScreenThreeView:
+        
+        
+
+

@@ -15,8 +15,8 @@ class MainApp(MDApp):
 
     def build(self):
         self.sm.add_widget(MainScreenView())
-        self.theme_cls.material_style = 'M3'
-        self.theme_cls.primary_palette= 'Orange'
+        # self.theme_cls.material_style = 'M3'
+        self.theme_cls.primary_palette= 'Blue'
         self.theme_cls.theme_style = "Light"
         return self.sm
 
