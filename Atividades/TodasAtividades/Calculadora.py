@@ -57,6 +57,3 @@ while True:
         print('Erro')
 
     input()
-    
-
-
